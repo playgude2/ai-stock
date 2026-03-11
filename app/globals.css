@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-border: hsl(0 0% 14.9%);
+  --color-input: hsl(0 0% 14.9%);
+  --color-ring: hsl(0 0% 83.1%);
+  --color-background: hsl(0 0% 3.9%);
+  --color-foreground: hsl(0 0% 98%);
+
+  --color-primary: hsl(0 0% 98%);
+  --color-primary-foreground: hsl(0 0% 9%);
+  --color-secondary: hsl(0 0% 14.9%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(0 0% 98%);
+  --color-muted: hsl(0 0% 14.9%);
+  --color-muted-foreground: hsl(0 0% 63.9%);
+  --color-accent: hsl(0 0% 14.9%);
+  --color-accent-foreground: hsl(0 0% 98%);
+  --color-popover: hsl(0 0% 6.5%);
+  --color-popover-foreground: hsl(0 0% 98%);
+  --color-card: hsl(0 0% 6.5%);
+  --color-card-foreground: hsl(0 0% 98%);
+
+  --color-bull: #22c55e;
+  --color-bull-muted: #16a34a22;
+  --color-bear: #ef4444;
+  --color-bear-muted: #dc262622;
+  --color-hold: #f59e0b;
+  --color-hold-muted: #d9770622;
+  --color-watch: #3b82f6;
+  --color-watch-muted: #2563eb22;
+
+  --radius: 0.75rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --animate-ticker-scroll: ticker-scroll 30s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+
+  @keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@keyframes animateIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0 0% 6.5%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 20%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0 0% 30%);
+}
